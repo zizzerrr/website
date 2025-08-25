@@ -15,19 +15,26 @@
             height: 100%;
             font-family: 'Arial', sans-serif;
             color: white;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
+        /* الخلفية المتحركة */
         .background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('path/to/your-wallpaper.jpg'); /* استبدل بمسار الخلفية */
+            background-image: url('https://example.com/your-8d-wallpaper.jpg'); /* استبدل بمسار الخلفية */
             background-size: cover;
             background-position: center;
+            animation: moveBackground 30s linear infinite; /* حركة للخلفية */
             z-index: -1;
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
         }
 
         .overlay {
@@ -36,7 +43,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6); /* طبقة مظلمة لتحسين وضوح النص */
+            background: rgba(0, 0, 0, 0.7); /* طبقة مظلمة لتحسين وضوح النص */
             z-index: 1;
         }
 
@@ -53,45 +60,47 @@
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 4em;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+            animation: fadeIn 2s ease-in-out; /* تأثير ظهور */
         }
 
         p {
             font-size: 1.5em;
             margin-bottom: 30px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 2s ease-in-out; /* تأثير ظهور */
         }
 
         .cta-button {
-            background-color: #007BFF; /* لون الزر */
+            background-color: #FF5733; /* لون الزر */
             color: white;
             padding: 15px 30px;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 1.2em;
+            font-size: 1.5em;
             transition: background-color 0.3s ease;
+            animation: fadeIn 2s ease-in-out; /* تأثير ظهور */
         }
 
         .cta-button:hover {
-            background-color: #0056b3; /* لون أغمق عند التمرير */
+            background-color: #C70039; /* لون أغمق عند التمرير */
         }
 
         nav {
             position: absolute;
-            bottom: 20px;
-            width: 100%;
-            text-align: center;
+            top: 20px;
+            right: 20px;
             z-index: 2;
         }
 
         nav ul {
             list-style: none;
+            display: flex;
         }
 
         nav ul li {
-            display: inline;
             margin: 0 15px;
         }
 
@@ -99,10 +108,71 @@
             color: white;
             text-decoration: none;
             font-size: 1.2em;
+            transition: color 0.3s ease;
         }
 
         nav ul li a:hover {
-            text-decoration: underline;
+            color: #FF5733; /* تغيير اللون عند التمرير */
+        }
+
+        section {
+            padding: 50px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-in-out; /* تأثير انزلاق */
+        }
+
+        section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        /* نموذج الاتصال */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background-color: #FF5733;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #C70039;
+        }
+
+        /* تأثيرات الحركة */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         /* تصميم متجاوب */
@@ -117,6 +187,10 @@
 
             .cta-button {
                 padding: 10px 20px;
+                font-size: 1em;
+            }
+
+            nav ul li a {
                 font-size: 1em;
             }
         }
@@ -139,7 +213,7 @@
         </ul>
     </nav>
 
-    <section id="services" style="padding: 50px; text-align: center; background: rgba(0, 0, 0, 0.7);">
+    <section id="services">
         <h2>خدماتنا</h2>
         <p>نقدم مجموعة من خدمات تتبع GPS المصممة لتلبية احتياجاتك.</p>
         <ul style="list-style: none; padding: 0;">
@@ -150,17 +224,23 @@
         </ul>
     </section>
 
-    <section id="about" style="padding: 50px; text-align: center; background: rgba(0, 0, 0, 0.7);">
+    <section id="about">
         <h2>عن الشركة</h2>
         <p>تاريخ مكرسة لتقديم أفضل حلول تتبع GPS في الإمارات.</p>
         <p>مهمتنا هي ضمان سلامة وأمان مركباتك.</p>
     </section>
 
-    <section id="contact" style="padding: 50px; text-align: center; background: rgba(0, 0, 0, 0.7);">
+    <section id="contact">
         <h2>اتصل بنا</h2>
         <p>للاستفسارات، يرجى التواصل معنا:</p>
         <p>البريد الإلكتروني: info@tariqgps.com</p>
         <p>الهاتف: +971 123 4567</p>
+        <form class="contact-form">
+            <input type="text" placeholder="اسمك" required>
+            <input type="email" placeholder="بريدك الإلكتروني" required>
+            <textarea placeholder="رسالتك" rows="4" required></textarea>
+            <button type="submit">إرسال</button>
+        </form>
     </section>
 </body>
 </html>
